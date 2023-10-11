@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kubenews</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/admin.css" />
+  </head>
+  <body>
+    
+      <%- include('./partial/header'); %>
+
+    <main>
+        <% if (posts.length === 0) {%>
+        <div class="no-posts__container">
+            <div class="no-posts__image">
+                <img src="/img/no-posts.gif" alt="Nenhum post">
+            </div>
+            <h1 class="no-posts__message">Ainda não temos nenhum post, que tal você criar um?</h1>
+            <a class="no-posts__button" href="/post">Novo Post</a>
+        </div>
+        <% } else { %>
+            <div class="posts-list__container">                
+                <div class="posts-list__grid">
+                    <% for(var i=0; i < posts.length; i++) { %>
+                    <div class="posts-list__item">
+                        <div class="post__card">
+                            <span class="post__card__date"><%= posts[i].publishDate %></span>
+                            <h4 class="post__card__title"><%= posts[i].title %></h4>
+                            <p class="post__card__description"><%= posts[i].summary %></p>
+                            <button class="post__card__button" onclick="location.href='/post/<%= posts[i].id %>';">Saiba Mais</button>
+                        </div>
+                    </div>
+                    <% } %>                    
+                </div>
+           </div>
+           <% } %>  
+    </main>
+    <%- include('./partial/footer'); %>
+  </body>
+</html>

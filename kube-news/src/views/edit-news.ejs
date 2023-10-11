@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kubenews</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/admin.css" />
+  </head>
+  <body>
+    <%- include('./partial/header'); %>
+    <main>
+       <div class="post-form__container">
+          <h3 class="post-form__title">Novo Post</h3>
+          <form action="#" class="post-form__form" action="/post" method="post">
+            <div class="post-form__group">
+              <label for="" class="post-form__label">Título</label>
+              <input type="text" class="post-form__input" id="title" name="title" placeholder="Escreva o título da notícia"><%= post.title %></input>
+              <div class="post-form__error">
+                Esse campo é obrigatório e deve ter no máximo 30 caracteres
+              </div>
+            </div>
+            <div class="post-form__group">
+              <label for="" class="post-form__label">Resumo</label>
+              <input type="text" class="post-form__input" id="resumo" name="resumo" placeholder="Escreva o resumo da notícia"><%= post.summary %></input>
+              <div class="post-form__error">
+                Esse campo é obrigatório e deve ter no máximo 30 caracteres
+              </div>
+            </div>
+            <div class="post-form__group">
+              <label for="" class="post-form__label">Notícia</label>
+              <textarea class="post-form__textarea" id="description" name="description" cols="30" rows="10" placeholder="Escreva a sua notícia..."><%= post.content %></textarea>
+              <div class="post-form__error">
+                Esse campo é obrigatório e deve ter no máximo 30 caracteres
+              </div>
+            </div>
+            <button class="post-form__button" type="submit">Salvar</button>
+          </form>
+       </div>
+    </main>
+   <%- include('./partial/footer'); %>
+  </body>
+</html>
